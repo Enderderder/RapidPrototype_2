@@ -9,37 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1502987346185830}
+  m_RootGameObject: {fileID: 1994923530737036}
   m_IsPrefabAsset: 1
---- !u!1 &1502987346185830
+--- !u!1 &1332850345088968
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4360163446722942}
-  - component: {fileID: 136269529027129496}
-  - component: {fileID: 54410381458784162}
-  - component: {fileID: 114872233874241696}
-  - component: {fileID: 114269325454428012}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1855046998357800
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4450754576901738}
-  - component: {fileID: 20737744389282898}
-  - component: {fileID: 81794908516687716}
+  - component: {fileID: 4598036083433818}
+  - component: {fileID: 20527265809062368}
+  - component: {fileID: 81866820876739624}
+  - component: {fileID: 114810549996813908}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -47,39 +29,58 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4360163446722942
+--- !u!1 &1994923530737036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4315424889800830}
+  - component: {fileID: 136611569771464468}
+  - component: {fileID: 54225797750658772}
+  - component: {fileID: 114576310496710532}
+  - component: {fileID: 114558705373246454}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4315424889800830
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502987346185830}
+  m_GameObject: {fileID: 1994923530737036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.4756072, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4450754576901738}
+  - {fileID: 4598036083433818}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4450754576901738
+--- !u!4 &4598036083433818
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1855046998357800}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.0800002, z: 0}
+  m_GameObject: {fileID: 1332850345088968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4360163446722942}
+  m_Father: {fileID: 4315424889800830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20737744389282898
+--- !u!20 &20527265809062368
 Camera:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1855046998357800}
+  m_GameObject: {fileID: 1332850345088968}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -114,12 +115,12 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!54 &54410381458784162
+--- !u!54 &54225797750658772
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502987346185830}
+  m_GameObject: {fileID: 1994923530737036}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -129,53 +130,66 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!81 &81794908516687716
+--- !u!81 &81866820876739624
 AudioListener:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1855046998357800}
+  m_GameObject: {fileID: 1332850345088968}
   m_Enabled: 1
---- !u!114 &114269325454428012
+--- !u!114 &114558705373246454
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502987346185830}
+  m_GameObject: {fileID: 1994923530737036}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 219952e9802bb5b4db2a7920396d633c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumX: -60
-  maximumX: 70
+  minimumX: -80
+  maximumX: 80
   minimumY: -360
   maximumY: 360
   sensitivityX: 5
   sensitivityY: 5
-  cam: {fileID: 20737744389282898}
---- !u!114 &114872233874241696
+  cam: {fileID: 20527265809062368}
+--- !u!114 &114576310496710532
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502987346185830}
+  m_GameObject: {fileID: 1994923530737036}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf494804775c1534ba7a1204126168b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1000
---- !u!136 &136269529027129496
+  moveSpeed: 100
+--- !u!114 &114810549996813908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332850345088968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1bced61a22968546ae95b7ff63b53dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabDistance: 2
+  hand: {fileID: 0}
+--- !u!136 &136611569771464468
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502987346185830}
+  m_GameObject: {fileID: 1994923530737036}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8
-  m_Height: 3
+  m_Radius: 0.5
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
