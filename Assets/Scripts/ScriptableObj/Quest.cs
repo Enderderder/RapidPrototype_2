@@ -31,4 +31,19 @@ public class Quest : ScriptableObject
     
 
 
+    private void Awake()
+    {
+        if(OnQuestStart == null)
+        {
+            OnQuestStart = new UnityEvent();
+        }
+    }
+
+    public void QuestStart()
+    {
+        OnQuestStart.Invoke();
+    }
+    
+
+
 }
