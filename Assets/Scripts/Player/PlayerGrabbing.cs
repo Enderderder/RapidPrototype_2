@@ -11,17 +11,20 @@ public class PlayerGrabbing : MonoBehaviour {
     private RaycastHit hit;
     private Ray grabRay;
 
+    private GameObject lastItem;
+
     private void Update()
     {
         grabRay = new Ray(transform.position, transform.forward);
 
         Debug.DrawRay(transform.position, transform.forward * grabDistance);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (!isGrabbing)
         {
-            if (!isGrabbing)
+            if (Physics.Raycast(grabRay, out hit, grabDistance))
             {
-                if (Physics.Raycast(grabRay, out hit, grabDistance))
+                lastItem = hit.collider.gameObject;
+                if (Input.GetButtonDown("Fire1"))
                 {
                     if (hit.collider.tag == "Pickupable")
                     {
@@ -32,7 +35,10 @@ public class PlayerGrabbing : MonoBehaviour {
                     }
                 }
             }
-            else
+        }
+        else
+        {
+            if (Input.GetButtonDown("Fire1"))
             {
                 isGrabbing = false;
                 transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
