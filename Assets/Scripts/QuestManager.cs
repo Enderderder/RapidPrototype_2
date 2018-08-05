@@ -22,7 +22,8 @@ public class QuestManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-	}
+    }
+
 
 
 }
