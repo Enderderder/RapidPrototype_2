@@ -24,6 +24,7 @@ public class PlayerGrabbing : MonoBehaviour {
             if (Physics.Raycast(grabRay, out hit, grabDistance))
             {
                 lastItem = hit.collider.gameObject;
+                lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Custom/Outline");
                 if (Input.GetButtonDown("Fire1"))
                 {
                     if (hit.collider.tag == "Pickupable")
@@ -32,8 +33,14 @@ public class PlayerGrabbing : MonoBehaviour {
                         hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                         hit.collider.gameObject.transform.SetParent(transform);
                         hit.collider.enabled = false;
+                        hit.collider.gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Diffuse");
                     }
                 }
+            }
+            else
+            {
+                if (lastItem != null)
+                    lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Diffuse");
             }
         }
         else
