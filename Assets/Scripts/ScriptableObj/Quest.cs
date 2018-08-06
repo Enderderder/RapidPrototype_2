@@ -13,6 +13,7 @@ public class Quest : ScriptableObject
     public int questID;
     public string discription;
     public GameObject questGiver;
+    public int score;
 
 
     private void Awake()
