@@ -9,15 +9,31 @@ public class GameController : MonoBehaviour {
 
     [System.NonSerialized] public bool isPaused = false;
 
+    private CameraController playerCamController;
+
+    private void Awake()
+    {
+        playerCamController = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CameraController>();
+    }
+
     private void Update()
     {
+        if (Input.GetButtonDown("Cancel"))
+            isPaused = !isPaused;
+
         if (isPaused)
         {
             pauseMenuCanvas.enabled = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0.0f;
+            playerCamController.enabled = false;
         }
         else
         {
             pauseMenuCanvas.enabled = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1.0f;
+            playerCamController.enabled = true;
         }
     }
 
