@@ -11,12 +11,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1292aeec226bda04db6f342691be9177, type: 3}
   m_Name: new Quest
   m_EditorClassIdentifier: 
-  unityEvent:
+  OnQuestStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114323970441626990, guid: fdffb30698dc05f4587723af68d82c1c,
+          type: 2}
+        m_MethodName: BeginQuest
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.ScriptableObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  questName: 
-  questID: 0
-  discription: 
+  OnQuestComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  questBuilder: {fileID: 114323970441626990, guid: fdffb30698dc05f4587723af68d82c1c,
+    type: 2}
+  questName: SomeRandomQuest
+  questID: 1
+  discription: Just some random quest stuff, dont need to worry or anything lol
+  questState: 0
   questGiver: {fileID: 0}
+  questSteps: 2
+  stepcount: 
+  score: 100
