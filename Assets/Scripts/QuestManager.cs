@@ -9,7 +9,7 @@ public class QuestManager : MonoBehaviour
 
     // Quest Lists
     public List<Quest> possibleQuestList;
-    public List<Quest> currentQuestList;
+    public List<Quest> activeQuestList;
 
 	void Awake ()
     {  
