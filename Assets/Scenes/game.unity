@@ -225,10 +225,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2113491996}
-    - target: {fileID: 1569899971699554, guid: 1729dddbc1cbe2147bff0d14a6b643ca, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1729dddbc1cbe2147bff0d14a6b643ca, type: 2}
   m_IsPrefabAsset: 0
@@ -316,7 +312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -4.2753906, y: -0.00008732851}
+  m_AnchoredPosition: {x: -4.2753906, y: -0.00015964736}
   m_SizeDelta: {x: 343, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &232132201

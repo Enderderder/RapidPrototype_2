@@ -10,7 +10,9 @@ public class GameController : MonoBehaviour
 
     public int Score { get; set; }
 
+    public Canvas pauseMenuCanvas;
     [System.NonSerialized] public bool isPaused = false;
+    private CameraController playerCamController;
 
     private void Awake()
     {
@@ -23,6 +25,9 @@ public class GameController : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+
+        pauseMenuCanvas.enabled = false;
+        playerCamController = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraController>();
     }
 
     private void Start()
@@ -30,8 +35,38 @@ public class GameController : MonoBehaviour
         Score = 0;
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+            isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            pauseMenuCanvas.enabled = true;
+            Time.timeScale = 0;
+            playerCamController.enabled = false;
+
+        }
+        else
+        {
+            pauseMenuCanvas.enabled = false;
+            Time.timeScale = 1;
+            playerCamController.enabled = true;
+        }
+    }
+
     public void AddScore(int _value)
     {
         Score += _value;
+    }
+
+    public void Button_Pause_Resume()
+    {
+        isPaused = false;
+    }
+
+    public void Button_Pause_Quit()
+    {
+        SceneManager.LoadScene(0);
     }
 }
