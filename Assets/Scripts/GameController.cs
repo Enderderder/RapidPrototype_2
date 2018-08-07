@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    // Singleton Instance
+    public static GameController instance;
 
     public Canvas pauseMenuCanvas;
 
     [System.NonSerialized] public bool isPaused = false;
+    public int Score { get; set; }
 
     private CameraController playerCamController;
 
@@ -46,5 +49,20 @@ public class GameController : MonoBehaviour
     public void Button_PauseMenu_Quit()
     {
         SceneManager.LoadScene(0);
+    }
+    private void Start()
+    {
+        Score = 0;
+    }
+
+
+
+
+
+
+
+    public void AddScore(int _value)
+    {
+        Score += _value;
     }
 }
