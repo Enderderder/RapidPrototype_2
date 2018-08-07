@@ -7,9 +7,12 @@ public class QuestManager : MonoBehaviour
     // Singleton Instance
     public static QuestManager instance;
 
+    // Quest Holder Object
+    private GameObject questHolderObj;
+
+    [Header("Quest Collection")]
     // Quest Lists
-    public List<Quest> possibleQuestList;
-    public List<Quest> activeQuestList;
+    public string[] questName;
 
 	void Awake ()
     {  
@@ -24,6 +27,11 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    
 
+    public void CreateRandomQuest()
+    {
+
+    }
 
 }
