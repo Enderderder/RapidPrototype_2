@@ -28,7 +28,7 @@ public class PlayerGrabbing : MonoBehaviour
     {
         grabRay = new Ray(transform.position, transform.forward);
         
-        Debug.DrawRay(transform.position, transform.forward * grabDistance);
+        Debug.DrawRay(transform.position, transform.forward * grabDistance, Color.black);
 
         if (!isGrabbing)
         {
