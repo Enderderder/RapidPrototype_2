@@ -7,7 +7,7 @@ public class QuestBase : MonoBehaviour
 {
     public List<Objective> Objectives { get; set; } = new List<Objective>();
     public string QuestName { get; set; }
-    public string Descrition { get; set; }
+    public string Description { get; set; }
     public bool Completed { get; set; }
     public int RewardScore { get; set; }
     public int PunishScore { get; set; }
