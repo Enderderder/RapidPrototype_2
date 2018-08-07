@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUpObjective : Objective
 {
     private GameObject TargetObject { get; set; }
-    [SerializeField] private readonly string targetName;
+    private string targetName { get; set; }
 
     public PickUpObjective(QuestBase quest, string _name, string _description,
         int pickupAmount = 1)
@@ -36,6 +36,7 @@ public class PickUpObjective : Objective
     {
         if (pickuppedObj == TargetObject && !Compeleted)
         {
+            Debug.Log("Pickup notified");
             this.CurrentCount++;
             this.Evaluate();
         }
