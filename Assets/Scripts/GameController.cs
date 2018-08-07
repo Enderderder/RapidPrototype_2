@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
     // Singleton Instance
     public static GameController instance;
+
+    public int Score { get; set; }
+
+
 
 
     private void Awake()
@@ -22,4 +25,19 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    private void Start()
+    {
+        Score = 0;
+    }
+
+
+
+
+
+
+
+    public void AddScore(int _value)
+    {
+        Score += _value;
+    }
 }
