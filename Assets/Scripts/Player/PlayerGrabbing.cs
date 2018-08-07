@@ -1,8 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class PlayerGrabbing : MonoBehaviour {
+[System.Serializable]
+public class ItemPickUpEvent : UnityEvent<GameObject>
+{}
+
+
+public class PlayerGrabbing : MonoBehaviour
+{
+    // Creates a unity event that can notify when player has pickupped something
+    public static ItemPickUpEvent OnPlayerPickUp = new ItemPickUpEvent();
 
     public float grabDistance;
     public float throwForce;
@@ -18,8 +27,8 @@ public class PlayerGrabbing : MonoBehaviour {
     private void Update()
     {
         grabRay = new Ray(transform.position, transform.forward);
-
-        Debug.DrawRay(transform.position, transform.forward * grabDistance);
+        
+        Debug.DrawRay(transform.position, transform.forward * grabDistance, Color.black);
 
         if (!isGrabbing)
         {
@@ -35,6 +44,9 @@ public class PlayerGrabbing : MonoBehaviour {
                 
                     if (Input.GetButtonDown("Fire1"))
                     {
+                        // Trigger the event
+                        OnPlayerPickUp.Invoke(hit.collider.gameObject);
+
                         isGrabbing = true;
                         hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                         hit.collider.gameObject.transform.SetParent(transform);

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Pickupable
   - DropZone
+  - DeskSpawnPoint
+  - Quest
   layers:
   - Default
   - TransparentFX
