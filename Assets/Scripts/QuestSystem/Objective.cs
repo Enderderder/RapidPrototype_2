@@ -2,6 +2,7 @@
 
 public class Objective
 {
+    public QuestBase Quest { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public bool Compeleted { get; set; }
@@ -17,7 +18,13 @@ public class Objective
     {
         if (CurrentCount >= TotalCount)
         {
-            Compeleted = true;
+            Completed();
         }
+    }
+
+    private void Completed()
+    {
+        Compeleted = true;
+        this.Quest.CheckObjectives();
     }
 }
