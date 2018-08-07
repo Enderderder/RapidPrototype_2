@@ -7,10 +7,10 @@ public class KeyNodeSpawner : MonoBehaviour {
     private int randnum;
 	// Use this for initialization
 	void OnEnable() {
-            StartCoroutine("loadkeynote");
+            StartCoroutine("Loadkeynote");
     }
 	
-    IEnumerator loadkeynote()
+    IEnumerator Loadkeynote()
     {
         while (true)
         {
@@ -23,12 +23,5 @@ public class KeyNodeSpawner : MonoBehaviour {
 
             yield return new WaitForSeconds(1);
         }
-    }
-
-	// Update is called once per frame
-	void Update () {
-		
-
-       
     }
 }
