@@ -13,6 +13,8 @@ public class PlayerGrabbing : MonoBehaviour {
 
     private GameObject lastItem;
 
+    private GameObject[] currItemDestinations;
+
     private void Update()
     {
         grabRay = new Ray(transform.position, transform.forward);
@@ -21,13 +23,17 @@ public class PlayerGrabbing : MonoBehaviour {
 
         if (!isGrabbing)
         {
+            
+
             if (Physics.Raycast(grabRay, out hit, grabDistance))
             {
-                lastItem = hit.collider.gameObject;
-                lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Custom/Outline");
-                if (Input.GetButtonDown("Fire1"))
+                if (hit.collider.tag == "Pickupable")
                 {
-                    if (hit.collider.tag == "Pickupable")
+                    lastItem = hit.collider.gameObject;
+
+                    lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Custom/Outline");
+                
+                    if (Input.GetButtonDown("Fire1"))
                     {
                         isGrabbing = true;
                         hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -45,13 +51,27 @@ public class PlayerGrabbing : MonoBehaviour {
         }
         else
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Physics.Raycast(grabRay, out hit, grabDistance) && hit.collider.tag == "DropZone")
             {
-                isGrabbing = false;
-                transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                transform.GetChild(0).GetComponent<Collider>().enabled = true;
-                transform.GetChild(0).GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
-                transform.GetChild(0).SetParent(null);
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    isGrabbing = false;
+                    transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+                    transform.GetChild(0).GetComponent<Collider>().enabled = true;
+                    transform.GetChild(0).transform.position = hit.collider.gameObject.transform.position;
+                    transform.GetChild(0).SetParent(null);
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    isGrabbing = false;
+                    transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+                    transform.GetChild(0).GetComponent<Collider>().enabled = true;
+                    transform.GetChild(0).GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
+                    transform.GetChild(0).SetParent(null);
+                }
             }
         }
     }
