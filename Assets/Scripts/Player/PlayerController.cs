@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
-
+    
     private Rigidbody rb;
     private Vector3 moveDirection;
-
+    public GameObject computer;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
@@ -20,6 +21,11 @@ public class PlayerController : MonoBehaviour {
         float verticalMovement = Input.GetAxisRaw("Vertical");
 
         moveDirection = (horizontalMovement * transform.right + verticalMovement * transform.forward).normalized;
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            computer.SetActive(true);
+            
+        }
     }
 
     private void FixedUpdate()
