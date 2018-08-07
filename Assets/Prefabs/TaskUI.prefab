@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114086728883923188}
   - component: {fileID: 114037144183024164}
   - component: {fileID: 114867851849859488}
+  - component: {fileID: 114779388049475026}
   m_Layer: 5
   m_Name: TaskUI
   m_TagString: Untagged
@@ -246,9 +247,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Due Date: 8hrs 10mins
-
-'
+  m_Text: 'Due Date: 10 Days'
 --- !u!114 &114346045281869454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,6 +358,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114779388049475026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409376225326302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3cf6080efbcd846b2cdd1ad2ec0b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duedate: {fileID: 114229121011522920}
+  day: 10
 --- !u!114 &114852615565377450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -497,7 +509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55.3, y: -18.1}
+  m_AnchoredPosition: {x: 73, y: -18.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224388059311144658
@@ -536,7 +548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2.7}
+  m_AnchoredPosition: {x: 0, y: -1.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224590548803441612
@@ -565,7 +577,7 @@ RectTransform:
   m_GameObject: {fileID: 1731939785118604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2.2011, z: 1}
   m_Children:
   - {fileID: 224590548803441612}
   - {fileID: 224701714645089476}
@@ -575,7 +587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -17.8}
+  m_AnchoredPosition: {x: 0, y: -22}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224701714645089476
