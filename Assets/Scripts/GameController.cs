@@ -11,9 +11,6 @@ public class GameController : MonoBehaviour
     public int Score { get; set; }
 
     [System.NonSerialized] public bool isPaused = false;
-    public int Score { get; set; }
-
-
 
     private void Awake()
     {
@@ -32,27 +29,6 @@ public class GameController : MonoBehaviour
     {
         Score = 0;
     }
-
-
-
-
-
-
-
-    public void AddScore(int _value)
-    {
-        Score += _value;
-    }
-    private void Start()
-    {
-        Score = 0;
-    }
-
-
-
-
-
-
 
     public void AddScore(int _value)
     {
