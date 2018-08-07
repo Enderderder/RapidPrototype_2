@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
 
     public int Score { get; set; }
 
+
+
     [System.NonSerialized] public bool isPaused = false;
 
     private void Awake()
