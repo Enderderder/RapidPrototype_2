@@ -17,9 +17,8 @@ public class KeyNodeSpawner : MonoBehaviour {
             randnum = Random.Range(0, keynotes.Length);
             if (GameObject.Find(keynotes[randnum].name) == null)
             {
-                GameObject keynode = Instantiate(keynotes[randnum]) as GameObject;
+                GameObject keynode = Instantiate(keynotes[randnum], this.transform) as GameObject;
                 keynode.name = keynotes[randnum].name;
-                keynode.transform.parent = this.transform;
             }
 
             yield return new WaitForSeconds(1);

@@ -41,6 +41,15 @@ public class KeyNote : MonoBehaviour {
             percentage.text = progess + "%";
             Destroy(this.gameObject);
         }
+        else if (Input.anyKeyDown)
+        {
+            progessbar.value -= 0.02f;
+            int progess = (int)((progessbar.value) * 100);
+            percentage.text = progess + "%";
+        }
+
+
+
 
         if (closingnode.transform.localScale.y <= 0)
         {
