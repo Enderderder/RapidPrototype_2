@@ -8,47 +8,40 @@ public class GameController : MonoBehaviour
     // Singleton Instance
     public static GameController instance;
 
-    public Canvas pauseMenuCanvas;
+    public int Score { get; set; }
 
     [System.NonSerialized] public bool isPaused = false;
     public int Score { get; set; }
 
-    private CameraController playerCamController;
+
 
     private void Awake()
     {
-        playerCamController = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CameraController>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetButtonDown("Cancel"))
-            isPaused = !isPaused;
-
-        if (isPaused)
+        if (instance == null)
         {
-            pauseMenuCanvas.enabled = true;
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0.0f;
-            playerCamController.enabled = false;
+            instance = this;
         }
-        else
+        else if (instance != this)
         {
-            pauseMenuCanvas.enabled = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1.0f;
-            playerCamController.enabled = true;
+            Destroy(this.gameObject);
         }
+        DontDestroyOnLoad(this.gameObject);
     }
 
-    public void Button_PauseMenu_Resume()
+    private void Start()
     {
-        isPaused = false;
+        Score = 0;
     }
 
-    public void Button_PauseMenu_Quit()
+
+
+
+
+
+
+    public void AddScore(int _value)
     {
-        SceneManager.LoadScene(0);
+        Score += _value;
     }
     private void Start()
     {
