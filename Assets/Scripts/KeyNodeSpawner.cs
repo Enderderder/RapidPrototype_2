@@ -6,7 +6,7 @@ public class KeyNodeSpawner : MonoBehaviour {
     public GameObject[] keynotes;
     private int randnum;
 	// Use this for initialization
-	void Start () {
+	void OnEnable() {
             StartCoroutine("loadkeynote");
     }
 	
