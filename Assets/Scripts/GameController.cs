@@ -5,14 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    // Singleton Instance
+    public static GameController instance;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public int Score { get; set; }
+
+
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
+        Score = 0;
+    }
+
+
+
+
+
+
+
+    public void AddScore(int _value)
+    {
+        Score += _value;
+    }
 }
