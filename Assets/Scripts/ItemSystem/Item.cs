@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-public interface IItem
+[CreateAssetMenu(fileName = "new Item", menuName = "Item")]
+public class Item : ScriptableObject
 {
-    string ItemName { get; set; }
-    int itemID { get; set; }
+    public string ItemName;
+    public int itemID;
 }
