@@ -16,7 +16,7 @@ public class PlayerGrabbing : MonoBehaviour
     public float grabDistance;
     public float throwForce;
 
-    private bool isGrabbing = false;
+    public bool isGrabbing = false;
     private RaycastHit hit;
     private Ray grabRay;
 

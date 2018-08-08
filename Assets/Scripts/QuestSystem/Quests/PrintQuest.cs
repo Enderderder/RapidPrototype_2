@@ -12,7 +12,7 @@ public class PrintQuest : QuestBase
         RewardScore = 100;
         PunishScore = 50;
 
-        Objectives.Add(new PickUpObjective(this, "Cube", "Pick up a cube pls~"));
+        Objectives.Add(new PickUpObjective(this, "Item_test", "Pick up a cube pls~"));
 
         foreach (Objective objective in Objectives)
         {
