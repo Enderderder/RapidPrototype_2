@@ -11,21 +11,6 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1994923530737036}
   m_IsPrefabAsset: 1
---- !u!1 &1255227238904654
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4486939583431572}
-  m_Layer: 10
-  m_Name: hand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1332850345088968
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,7 +22,7 @@ GameObject:
   - component: {fileID: 20527265809062368}
   - component: {fileID: 81866820876739624}
   - component: {fileID: 114810549996813908}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Camera
   m_TagString: PlayerCamera
   m_Icon: {fileID: 0}
@@ -56,7 +41,7 @@ GameObject:
   - component: {fileID: 54225797750658772}
   - component: {fileID: 114576310496710532}
   - component: {fileID: 114558705373246454}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -77,19 +62,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4486939583431572
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1255227238904654}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.102, z: 0.831}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4598036083433818}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4598036083433818
 Transform:
   m_ObjectHideFlags: 1
@@ -99,8 +71,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.453, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4486939583431572}
+  m_Children: []
   m_Father: {fileID: 4315424889800830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -210,7 +181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabDistance: 1
   throwForce: 100
-  cam: {fileID: 20527265809062368}
   isGrabbing: 0
 --- !u!136 &136611569771464468
 CapsuleCollider:

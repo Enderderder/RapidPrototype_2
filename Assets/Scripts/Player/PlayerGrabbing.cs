@@ -43,7 +43,7 @@ public class PlayerGrabbing : MonoBehaviour
                 {
                     lastItem = hit.collider.gameObject;
 
-                    lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Custom/Outline");
+                    lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Custom/ItemOutline");
                 
                     if (Input.GetButtonDown("Fire1"))
                     {

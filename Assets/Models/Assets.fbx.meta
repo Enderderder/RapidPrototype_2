@@ -197,6 +197,29 @@ ModelImporter:
     4300040: pCube57
     4300042: pCube58
     4300044: pCube59
+    6400000: pCube12
+    6400002: pCube13
+    6400004: pCube14
+    6400006: pCube15
+    6400008: pCube16
+    6400010: pCube17
+    6400012: pCube18
+    6400014: pCube19
+    6400016: pCube20
+    6400018: pCube21
+    6400020: pCube22
+    6400022: pCube23
+    6400024: pCube24
+    6400026: pCube31
+    6400028: pCube32
+    6400030: pCube33
+    6400032: pCube35
+    6400034: pCube46
+    6400036: pCube55
+    6400038: pCube57
+    6400040: pCube58
+    6400042: pCube59
+    6400044: pCube6
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -230,7 +253,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
