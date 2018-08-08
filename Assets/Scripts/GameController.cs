@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
 
         pauseMenuCanvas.enabled = false;
         playerCamController = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraController>();
@@ -45,13 +45,14 @@ public class GameController : MonoBehaviour
             pauseMenuCanvas.enabled = true;
             Time.timeScale = 0;
             playerCamController.enabled = false;
-
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             pauseMenuCanvas.enabled = false;
             Time.timeScale = 1;
             playerCamController.enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
