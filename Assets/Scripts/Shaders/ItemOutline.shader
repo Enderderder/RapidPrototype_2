@@ -1,4 +1,4 @@
-﻿Shader "Custom/Outline"
+﻿Shader "Custom/ItemOutline"
 {
 	Properties//Variables
 	{
@@ -7,7 +7,7 @@
 
 		_OutlineTex("Outline Texture", 2D) = "white" {}
 		_OutlineColor("Outline Color", Color) = (1,1,1,1)
-		_OutlineWidth("Outline Width", Range(1.0,10.0)) = 1.1
+		_OutlineWidth("Outline Width", Range(1.0,1.5)) = 1.05
 	}
 
 	SubShader

@@ -95,7 +95,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabDistance: 1
   throwForce: 100
+  isGrabbing: 0
 --- !u!136 &136611569771464468
 CapsuleCollider:
   m_ObjectHideFlags: 1

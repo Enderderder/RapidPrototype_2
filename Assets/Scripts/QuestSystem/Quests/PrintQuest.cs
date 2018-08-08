@@ -7,6 +7,7 @@ public class PrintQuest : QuestBase
 	void Start ()
     {
         QuestName = "Print Something";
+        this.gameObject.name = QuestName;
         Description = "Go print some thing for me";
         QuestTime = 30.0f;
         RewardScore = 100;
