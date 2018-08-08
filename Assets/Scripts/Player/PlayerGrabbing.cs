@@ -87,7 +87,7 @@ public class PlayerGrabbing : MonoBehaviour
                     isGrabbing = false;
                     //hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = true;
                     GameObject.Find("hand").transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                    GameObject.Find("hand").transform.GetChild(0).GetComponent<Collider>().enabled = true;
+                    
                     GameObject.Find("hand").transform.GetChild(0).transform.position = hit.collider.gameObject.transform.position;
                     GameObject.Find("hand").transform.GetChild(0).SetParent(null);
                 }
@@ -97,9 +97,8 @@ public class PlayerGrabbing : MonoBehaviour
                 if (Input.GetButtonDown("Fire1"))
                 {
                     isGrabbing = false;
-                    hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = true;
                     GameObject.Find("hand").transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                    GameObject.Find("hand").transform.GetChild(0).GetComponent<Collider>().enabled = true;
+                   
                     GameObject.Find("hand").transform.GetChild(0).GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
                     GameObject.Find("hand").transform.GetChild(0).SetParent(null);
                 }
