@@ -39,7 +39,7 @@ public class PlayerGrabbing : MonoBehaviour
 
             if (Physics.Raycast(grabRay, out hit, grabDistance))
             {
-                if (hit.collider.tag == "Pickupable")
+                if (hit.collider.gameObject.GetComponent<Pickupable>())
                 {
                     lastItem = hit.collider.gameObject;
 
