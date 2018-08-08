@@ -946,8 +946,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14.000004, y: 2.3999999, z: 0.100000404}
-  m_Center: {x: 0, y: 1.1999999, z: 7.9500017}
+  m_Size: {x: 14.000004, y: 2.3999999, z: 0.52}
+  m_Center: {x: 0, y: 1.1999999, z: 8.16}
 --- !u!1 &667497243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: d0733d96ec90fcd4c8c6bbe34839b77b,
@@ -963,8 +963,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14.000004, y: 2.3999999, z: 0.100000404}
-  m_Center: {x: 0, y: 1.1999999, z: -7.9500017}
+  m_Size: {x: 14.000004, y: 2.3999999, z: 0.51}
+  m_Center: {x: 0, y: 1.1999999, z: -8.15}
 --- !u!1 &691265536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100032, guid: 65f9331d84949774d8b40cce4568732f,
@@ -1733,8 +1733,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.100000404, y: 2.3999999, z: 16.000004}
-  m_Center: {x: 6.9500012, y: 1.1999999, z: 0}
+  m_Size: {x: 0.51, y: 2.3999999, z: 16.000004}
+  m_Center: {x: 7.155, y: 1.1999999, z: 0}
 --- !u!1 &1050744035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100072, guid: 10a5bfd1016486e45971dd2ab2b02096,
@@ -1844,8 +1844,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.100000404, y: 2.3999999, z: 16.000004}
-  m_Center: {x: -6.9500012, y: 1.1999999, z: 0}
+  m_Size: {x: 0.51, y: 2.3999999, z: 16.000004}
+  m_Center: {x: -7.15, y: 1.1999999, z: 0}
 --- !u!1 &1226913038 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100036, guid: 10a5bfd1016486e45971dd2ab2b02096,
@@ -2241,6 +2241,11 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1405936135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1994923530737036, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 2}
+  m_PrefabInternal: {fileID: 105400690}
 --- !u!1 &1409577883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,7 +2802,7 @@ Prefab:
     - target: {fileID: 224778689369963000, guid: 1689d926e6db8a84da5f09823fd8fe37,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000045769357
+      value: 0.00017825198
       objectReference: {fileID: 0}
     - target: {fileID: 224440961915070828, guid: 1689d926e6db8a84da5f09823fd8fe37,
         type: 2}
@@ -2808,6 +2813,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114197816489967918, guid: 1689d926e6db8a84da5f09823fd8fe37,
+        type: 2}
+      propertyPath: playerobject
+      value: 
+      objectReference: {fileID: 1405936135}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1689d926e6db8a84da5f09823fd8fe37, type: 2}
   m_IsPrefabAsset: 0
