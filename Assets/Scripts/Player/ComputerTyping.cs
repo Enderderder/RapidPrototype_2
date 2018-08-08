@@ -24,6 +24,7 @@ public class ComputerTyping : MonoBehaviour {
             playerobject.GetComponent<CameraController>().enabled = true;
             
             this.gameObject.SetActive(false);
+            //gameObject.transform.position = 
         }
     }
 }
