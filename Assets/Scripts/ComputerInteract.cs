@@ -6,6 +6,7 @@ public class ComputerInteract : MonoBehaviour {
 
     public Canvas UICanvas;
     public Canvas computerCanvas;
+    public GameObject computerScreen;
 
     private bool isUsing;
     private GameObject player;
@@ -30,12 +31,13 @@ public class ComputerInteract : MonoBehaviour {
             anim.SetBool("isActive", true);
             UICanvas.enabled = false;
             computerCanvas.renderMode = RenderMode.WorldSpace;
-            computerCanvas.transform.position = new Vector3(1.188f, 0.976f, -4.963f);
+            computerCanvas.transform.position = new Vector3(4.225f, 0.976f, -0.91f);
             computerCanvas.transform.eulerAngles = new Vector3(0.0f, -90.0f, 0.0f);
             computerCanvas.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
-            player.GetComponent<PlayerController>().computer.SetActive(true);
             if (Input.GetButtonDown("Cancel"))
+            {
                 isUsing = false;
+            }
         }
         else
         {
@@ -44,12 +46,13 @@ public class ComputerInteract : MonoBehaviour {
             computerCam.enabled = false;
             UICanvas.enabled = true;
             computerCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            computerScreen.SetActive(false);
         }
     }
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && Input.GetButtonDown("Interact"))
         {
             isUsing = true;
         }
