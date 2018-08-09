@@ -22,10 +22,17 @@ public class PlayerGrabbing : MonoBehaviour
 
     private Camera fpsCamera;
     private GameObject lastItem;
+    private GameObject lastDropPoint;
 
     private GameObject[] currItemDestinations;
+    private Transform hand;
     Vector3 curScreenSpace;
     Vector3 curPosition;
+
+    private void Start()
+    {
+        hand = GameObject.Find("hand").transform;
+    }
 
     private void Awake()
     {
@@ -59,13 +66,15 @@ public class PlayerGrabbing : MonoBehaviour
                         OnPlayerPickUp.Invoke(lastItem);
 
                         isGrabbing = true;
-                        lastItem.GetComponent<Rigidbody>().isKinematic = true;
+                        hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        
+                        hit.collider.gameObject.transform.SetParent(hand);
+                        hit.collider.gameObject.transform.position = hand.position;
 
                         interactScript.OutlineOff();
                         interactScript.HideInteractHUD(interactUIText);
                     }
                 }
-
             }
             else
             {
@@ -87,29 +96,34 @@ public class PlayerGrabbing : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(grabRay, out hitInfo, grabDistance) && hitInfo.collider.tag == "DropZone")
             {
+                lastDropPoint = hit.collider.gameObject;
+
+                hitInfo.collider.GetComponent<ItemDropPoint>().InRange = true;
+
                 if (Input.GetButtonDown("Pickup"))
                 {
                     isGrabbing = false;
-                    //hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                    GameObject.Find("hand").transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                    
-                    GameObject.Find("hand").transform.GetChild(0).transform.position = hitInfo.collider.gameObject.transform.position;
-                    GameObject.Find("hand").transform.GetChild(0).SetParent(null);
+                    hand.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+
+                    hand.GetChild(0).transform.position = hit.collider.gameObject.transform.position;
+                    hand.GetChild(0).SetParent(null);
+                    hitInfo.collider.GetComponent<ItemDropPoint>().InRange = false;
                 }
             }
             else
             {
+                if (lastDropPoint != null)
+                    lastDropPoint.GetComponent<ItemDropPoint>().InRange = false;
+
                 if (Input.GetButtonDown("Fire1"))
                 {
                     isGrabbing = false;
-                    GameObject.Find("hand").transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                   
-                    GameObject.Find("hand").transform.GetChild(0).GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
-                    GameObject.Find("hand").transform.GetChild(0).SetParent(null);
+                    hand.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+
+                    hand.GetChild(0).GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
+                    hand.transform.GetChild(0).SetParent(null);
                 }
             }
         }
     }
-
-
-   }
+}

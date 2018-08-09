@@ -9,9 +9,11 @@ public class KeyNodeSpawner : MonoBehaviour {
 	void OnEnable() {
             StartCoroutine("Loadkeynote");
     }
-	
+
     IEnumerator Loadkeynote()
     {
+        yield return new WaitForSeconds(2);
+
         while (true)
         {
             randnum = Random.Range(0, keynotes.Length);

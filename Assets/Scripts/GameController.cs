@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public Canvas pauseMenuCanvas;
     [System.NonSerialized] public bool isPaused = false;
     private CameraController playerCamController;
+    private PlayerController playerController;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class GameController : MonoBehaviour
 
         pauseMenuCanvas.enabled = false;
         playerCamController = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraController>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void Start()
@@ -38,7 +40,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") && GameObject.Find("computer screen") == null)
             isPaused = !isPaused;
 
         if (isPaused)
@@ -46,6 +48,7 @@ public class GameController : MonoBehaviour
             pauseMenuCanvas.enabled = true;
             Time.timeScale = 0;
             playerCamController.enabled = false;
+            playerController.enabled = false;
             Cursor.lockState = CursorLockMode.None;
         }
         else
@@ -53,6 +56,7 @@ public class GameController : MonoBehaviour
             pauseMenuCanvas.enabled = false;
             Time.timeScale = 1;
             playerCamController.enabled = true;
+            playerController.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
