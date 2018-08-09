@@ -10,31 +10,33 @@ public class ItemDropPoint : MonoBehaviour {
 
     public bool InRange { get; set; }
     private PlayerGrabbing playerGrabScript;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         InRange = false;
         playerGrabScript = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerGrabbing>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if (InRange)
-        {
-            GetComponent<SpriteRenderer>().sprite = activeSprite;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().sprite = inactiveSprite;
-        }
-
         if (playerGrabScript.isGrabbing)
         {
-            GetComponent<BoxCollider>().enabled = true;
+            spriteRenderer.enabled = true;
         }
         else
         {
-            GetComponent<BoxCollider>().enabled = false;
+            spriteRenderer.enabled = false;
+        }
+
+        if (InRange)
+        {
+            spriteRenderer.sprite = activeSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = inactiveSprite;
         }
     }
 }
