@@ -46,9 +46,9 @@ public class ComputerInteract : MonoBehaviour {
         }
     }
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && Input.GetButtonDown("Interact"))
         {
             isUsing = true;
         }

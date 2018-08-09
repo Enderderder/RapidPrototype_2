@@ -804,6 +804,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212048036136490720, guid: 1efc5e22d8f03534e9190f70b9b0c70b,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a1815a19d052a2a4a96af806e9b81c75,
+        type: 3}
+    - target: {fileID: 212048036136490720, guid: 1efc5e22d8f03534e9190f70b9b0c70b,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212048036136490720, guid: 1efc5e22d8f03534e9190f70b9b0c70b,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 212048036136490720, guid: 1efc5e22d8f03534e9190f70b9b0c70b,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1efc5e22d8f03534e9190f70b9b0c70b, type: 2}
   m_IsPrefabAsset: 0
@@ -2802,7 +2823,7 @@ Prefab:
     - target: {fileID: 224778689369963000, guid: 1689d926e6db8a84da5f09823fd8fe37,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00017825198
+      value: -0.000037323698
       objectReference: {fileID: 0}
     - target: {fileID: 224440961915070828, guid: 1689d926e6db8a84da5f09823fd8fe37,
         type: 2}
