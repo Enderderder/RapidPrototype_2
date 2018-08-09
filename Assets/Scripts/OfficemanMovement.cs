@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class OfficemanMovement : MonoBehaviour {
+    Animator anim;
+
     [SerializeField]
     bool _patrolWaiting;
 
@@ -24,6 +26,8 @@ public class OfficemanMovement : MonoBehaviour {
     float _waitTimer;
 	// Use this for initialization
 	void Start () {
+        anim = GetComponent<Animator>();
+
         _navMeshAgent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         if (_navMeshAgent == null)
@@ -71,6 +75,15 @@ public class OfficemanMovement : MonoBehaviour {
 
     public void Update()
     {
+        if (_travelling)
+        {
+            anim.SetBool("Iswalking", true);
+        }
+        else
+        {
+            anim.SetBool("Iswalking", false);
+        }
+
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f)
         {
             _travelling = false;
