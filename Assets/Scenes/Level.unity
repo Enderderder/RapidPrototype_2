@@ -1467,6 +1467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UICanvas: {fileID: 61431833}
   computerCanvas: {fileID: 1423232862}
+  computerScreen: {fileID: 795706563}
 --- !u!65 &837465177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2823,7 +2824,7 @@ Prefab:
     - target: {fileID: 224778689369963000, guid: 1689d926e6db8a84da5f09823fd8fe37,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000037323698
+      value: 0.00003313981
       objectReference: {fileID: 0}
     - target: {fileID: 224440961915070828, guid: 1689d926e6db8a84da5f09823fd8fe37,
         type: 2}
