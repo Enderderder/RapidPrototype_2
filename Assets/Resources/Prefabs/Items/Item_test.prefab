@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4240622440842052}
-  - component: {fileID: 33518548516051056}
+  - component: {fileID: 33324436276461086}
   - component: {fileID: 23657905655881528}
   - component: {fileID: 65465935356772920}
   - component: {fileID: 54061421786806800}
@@ -60,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: c77c4876553fc894fb3abb07e5dceeec, type: 2}
+  - {fileID: 2100000, guid: 5b43b36fc424e3243b98a229d46ab029, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33518548516051056
+--- !u!33 &33324436276461086
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

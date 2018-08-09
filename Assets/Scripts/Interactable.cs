@@ -1,43 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(MeshRenderer))]
 public class Interactable : MonoBehaviour
 {
-    public string ButtonToInteract { get; set; } = "E";
+    public string ButtonToInteract { get; set; } = "Interact";
     public Color OutlineColor { get; set; } = Color.yellow;
     public bool AbleToPickUp { get; set; } = false;
     private MeshRenderer Renderer { get; set; }
-    private Material OriginMaterial { get; set; }
-    private Material OutlineMaterial { get; set; }
+    private Shader OriginShader { get; set; }
+    private Shader OutlineShader { get; set; }
+
+    private Color originColor;
 
     protected void Awake()
-    { 
+    {
         Renderer = GetComponent<MeshRenderer>();
-        OriginMaterial = Renderer.material;
-        OutlineMaterial = (Material)Resources.Load("Materials/ItemOutline", 
-            typeof(Material));
+        OriginShader = Renderer.material.shader;
+        OutlineShader = Shader.Find("Custom/OutlineShader");
     }
-
 
     public void OutlineOn()
     {
-        Renderer.material.shader = Resources.Load(
-            "Materials/ItemOutline", typeof(Shader)) as Shader;
-
-        // Change the Thickness and the Color of the outline shader
-        // base on the property
+        Renderer.material.shader = OutlineShader;
+        Renderer.material.SetColor("_OutlineColor", OutlineColor);
     }
 
     public void OutlineOff()
     {
-        Renderer.material = OriginMaterial;
+        Renderer.material.shader = OriginShader;
     }
 
-    public void ShowInteractButton()
+    public void ShowInteractHUD(GameObject _textObj)
     {
+        _textObj.GetComponent<Text>().text = "Press " + ButtonToInteract + "to Interact";
+        _textObj.SetActive(true);
+    }
 
+    public void HideInteractHUD(GameObject _textObj)
+    {
+        _textObj.SetActive(false);
     }
 
     public virtual void InteractAction()

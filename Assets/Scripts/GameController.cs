@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        isPaused = false;
         Score = 0;
     }
 

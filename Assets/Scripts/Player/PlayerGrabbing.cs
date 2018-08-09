@@ -15,53 +15,54 @@ public class PlayerGrabbing : MonoBehaviour
 
     public float grabDistance;
     public float throwForce;
-    public Camera cam;
+
+    public GameObject interactUIText;
 
     public bool isGrabbing = false;
-    private RaycastHit hit;
-    private Ray grabRay;
 
+    private Camera fpsCamera;
     private GameObject lastItem;
 
     private GameObject[] currItemDestinations;
     Vector3 curScreenSpace;
     Vector3 curPosition;
 
+    private void Awake()
+    {
+        fpsCamera = GetComponent<Camera>();
+    }
+
+
     private void Update()
     {
-        grabRay = new Ray(transform.position, transform.forward);
-        
-        Debug.DrawRay(transform.position, transform.forward * grabDistance, Color.black);
+        Ray grabRay = fpsCamera.ViewportPointToRay(Vector3.one / 2.0f);
+        Debug.DrawRay(grabRay.origin, grabRay.direction * grabDistance, Color.black);
 
         if (!isGrabbing)
         {
-            
-
-            if (Physics.Raycast(grabRay, out hit, grabDistance))
+            RaycastHit hitInfo;
+            if (Physics.Raycast(grabRay, out hitInfo, grabDistance))
             {
-                if (hit.collider.gameObject.GetComponent<Pickupable>())
-                {
-                    lastItem = hit.collider.gameObject;
+                GameObject targetObject = hitInfo.collider.gameObject;
 
-                    lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Custom/ItemOutline");
-                
-                    if (Input.GetButtonDown("Fire1"))
+                var interactScript = targetObject.GetComponent<Pickupable>();
+                if (interactScript != null)
+                {
+                    interactScript.OutlineOn();
+                    interactScript.ShowInteractHUD(interactUIText);
+
+                    lastItem = targetObject;
+
+                    if (Input.GetButtonDown("Pickup"))
                     {
                         // Trigger the event
-                        OnPlayerPickUp.Invoke(hit.collider.gameObject);
+                        OnPlayerPickUp.Invoke(lastItem);
 
                         isGrabbing = true;
-                        //hit.collider.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                        //hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                        hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                        //hit.collider.gameObject.GetComponent<Rigidbody>().detectCollisions = true;
-                        
-                        //hit.collider.gameObject.GetComponent<Rigidbody>().velocity = (pos - hit.collider.gameObject.transform.position) * 10;
-                        hit.collider.gameObject.transform.SetParent(GameObject.Find("hand").transform);
-                        hit.collider.gameObject.transform.position = GameObject.Find("hand").transform.position;
+                        lastItem.GetComponent<Rigidbody>().isKinematic = true;
 
-                        //hit.collider.enabled = false;
-                        hit.collider.gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Diffuse");
+                        interactScript.OutlineOff();
+                        interactScript.HideInteractHUD(interactUIText);
                     }
                 }
 
@@ -69,7 +70,10 @@ public class PlayerGrabbing : MonoBehaviour
             else
             {
                 if (lastItem != null)
-                    lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Diffuse");
+                {
+                    lastItem.GetComponent<Pickupable>().OutlineOff();
+                    lastItem.GetComponent<Pickupable>().HideInteractHUD(interactUIText);
+                }
             }
         }
         else
@@ -80,15 +84,16 @@ public class PlayerGrabbing : MonoBehaviour
             //curPosition = cam.ScreenToWorldPoint(curScreenSpace) + offset;
             //hit.collider.gameObject.transform.position = curPosition;
 
-            if (Physics.Raycast(grabRay, out hit, grabDistance) && hit.collider.tag == "DropZone")
+            RaycastHit hitInfo;
+            if (Physics.Raycast(grabRay, out hitInfo, grabDistance) && hitInfo.collider.tag == "DropZone")
             {
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Pickup"))
                 {
                     isGrabbing = false;
                     //hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = true;
                     GameObject.Find("hand").transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
                     
-                    GameObject.Find("hand").transform.GetChild(0).transform.position = hit.collider.gameObject.transform.position;
+                    GameObject.Find("hand").transform.GetChild(0).transform.position = hitInfo.collider.gameObject.transform.position;
                     GameObject.Find("hand").transform.GetChild(0).SetParent(null);
                 }
             }
