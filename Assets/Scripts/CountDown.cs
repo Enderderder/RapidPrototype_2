@@ -7,6 +7,7 @@ public class CountDown : MonoBehaviour {
     public Text duedate;
     public int day;
     private float timeinsec = 60;
+
 	// Use this for initialization
 	void Start () {
 		

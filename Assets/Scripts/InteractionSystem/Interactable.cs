@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(MeshRenderer))]
 public class Interactable : MonoBehaviour
 {
-    public string ButtonToInteract { get; set; } = "Interact";
+    public string ButtonToInteract { get; set; } = "E";
     public Color OutlineColor { get; set; } = Color.yellow;
     public bool AbleToPickUp { get; set; } = false;
     private MeshRenderer Renderer { get; set; }
@@ -33,9 +33,10 @@ public class Interactable : MonoBehaviour
         Renderer.material.shader = OriginShader;
     }
 
-    public void ShowInteractHUD(GameObject _textObj)
+    public virtual void ShowInteractHUD(GameObject _textObj)
     {
-        _textObj.GetComponent<Text>().text = "Press " + ButtonToInteract + "to Interact";
+        _textObj.GetComponent<Text>().text 
+            = "Press " + ButtonToInteract + " to Interact";
         _textObj.SetActive(true);
     }
 

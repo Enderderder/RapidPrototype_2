@@ -62,6 +62,11 @@ public class GameController : MonoBehaviour
         Score += _value;
     }
 
+    public void DecreaseScore(int _value)
+    {
+        Score -= _value;
+    }
+
     public void Button_Pause_Resume()
     {
         isPaused = false;

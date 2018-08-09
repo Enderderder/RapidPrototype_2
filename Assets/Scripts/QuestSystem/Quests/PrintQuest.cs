@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PrintQuest : QuestBase
 {
-	void Start ()
+	private void Start ()
+    {
+        Initialize();
+    }
+
+    protected override void Initialize()
     {
         QuestName = "Print Something";
         this.gameObject.name = QuestName;
@@ -12,6 +17,8 @@ public class PrintQuest : QuestBase
         QuestTime = 30.0f;
         RewardScore = 100;
         PunishScore = 50;
+
+        base.Initialize();
 
         Objectives.Add(new PickUpObjective(this, "Item_test", "Pick up a cube pls~"));
 
