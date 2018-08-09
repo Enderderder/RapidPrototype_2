@@ -24,6 +24,7 @@ public class ComputerInteract : MonoBehaviour {
     {
         if (isUsing)
         {
+            
             player.SetActive(false);
             computerCam.enabled = true;
             anim.SetBool("isActive", true);
@@ -32,7 +33,7 @@ public class ComputerInteract : MonoBehaviour {
             computerCanvas.transform.position = new Vector3(1.188f, 0.976f, -4.963f);
             computerCanvas.transform.eulerAngles = new Vector3(0.0f, -90.0f, 0.0f);
             computerCanvas.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
-
+            player.GetComponent<PlayerController>().computer.SetActive(true);
             if (Input.GetButtonDown("Cancel"))
                 isUsing = false;
         }
