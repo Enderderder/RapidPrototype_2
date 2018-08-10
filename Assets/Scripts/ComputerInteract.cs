@@ -39,7 +39,7 @@ public class ComputerInteract : MonoBehaviour {
             player.SetActive(false);
             computerCam.enabled = true;
             anim.SetBool("isActive", true);
-            //UICanvas.enabled = false;
+            UICanvas.enabled = false;
             computerCanvas.renderMode = RenderMode.WorldSpace;
             computerCanvas.transform.position = new Vector3(4.225f, 0.976f, -0.91f);
             computerCanvas.transform.eulerAngles = new Vector3(0.0f, -90.0f, 0.0f);
@@ -55,7 +55,7 @@ public class ComputerInteract : MonoBehaviour {
             player.SetActive(true);
             anim.SetBool("isActive", false);
             computerCam.enabled = false;
-            //UICanvas.enabled = true;
+            UICanvas.enabled = true;
             computerCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
             computerScreen.SetActive(false);
         }

@@ -20,8 +20,7 @@ public class PrintQuest : QuestBase
 
         base.Initialize();
 
-        Objectives.Add(new PickUpObjective(this, "Coffee", "Pick up a coffee1"));
-        Objectives.Add(new DropZoneObjective(this, "BossDropZone", "Give it to the boss"));
+        Objectives.Add(new PickUpObjective(this, "Item_test", "Pick up a cube pls~"));
 
         foreach (Objective objective in Objectives)
         {

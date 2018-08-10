@@ -43,14 +43,9 @@ public class Spawner : MonoBehaviour
 
     public GameObject SpawnItemOnDesk(string itemName)
     {
-        if (itemName != null)
-        {
-            string itemPath = "Prefabs/Items/" + itemName;
+        string itemPath = "Prefabs/Items/" + itemName;
 
-            return (GameObject)Instantiate(Resources.Load(itemPath, typeof(GameObject)),
-                SpawnPoint_Desk.transform);
-        }
-
-        return null;
+        return (GameObject)Instantiate(Resources.Load(itemPath, typeof(GameObject)),
+            SpawnPoint_Desk.transform);
     }
 }
