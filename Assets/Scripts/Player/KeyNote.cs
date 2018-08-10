@@ -11,7 +11,7 @@ public class KeyNote : MonoBehaviour {
 
     private GameObject slider;
     private GameObject text;
-    private Slider progessbar;
+    public Slider progessbar;
     private Text percentage;
     // Use this for initialization
     void Start () {
