@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     // Singleton
     public static Spawner Instance { get; set; }
 
+    public float Score { get; set; }
+
     // Variables
     private GameObject SpawnPoint_Desk;
 
@@ -23,6 +25,14 @@ public class Spawner : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Update()
+    {
+        if (GameObject.Find("Player") != null)
+        {
+            Score = GameObject.Find("GameController").GetComponent<GameController>().Score;
+        }
     }
 
     private void OnEnable()
