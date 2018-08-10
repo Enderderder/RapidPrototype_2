@@ -14,6 +14,7 @@ public class ComputerInteract : MonoBehaviour {
     private GameObject player;
     private Camera computerCam;
     private Animator anim;
+    private Text pressEText;
 
     private void Start()
     {
@@ -21,6 +22,8 @@ public class ComputerInteract : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         computerCam = GetComponentInChildren<Camera>();
         anim = computerCam.GetComponent<Animator>();
+        pressEText = GameObject.Find("PressEInteractText").GetComponent<Text>();
+        pressEText.enabled = false;
     }
 
     private void Update()
@@ -32,6 +35,7 @@ public class ComputerInteract : MonoBehaviour {
 
         if (isUsing)
         {
+            pressEText.enabled = false;
             player.SetActive(false);
             computerCam.enabled = true;
             anim.SetBool("isActive", true);
@@ -57,7 +61,23 @@ public class ComputerInteract : MonoBehaviour {
         }
     }
 
-	private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            pressEText.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            pressEText.enabled = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" && Input.GetButtonDown("Interact"))
         {
