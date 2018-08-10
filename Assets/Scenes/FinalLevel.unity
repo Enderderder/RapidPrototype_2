@@ -1997,6 +1997,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400136, guid: a9675761e12d3f940be72ca10c4c2443,
     type: 3}
   m_PrefabInternal: {fileID: 1860515699}
+--- !u!224 &649870623 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224440961915070828, guid: 1689d926e6db8a84da5f09823fd8fe37,
+    type: 2}
+  m_PrefabInternal: {fileID: 1854151489}
 --- !u!1 &664785730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100030, guid: e62b8e71edb317e41804c335d708a06b,
@@ -3113,7 +3118,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1888305848862356, guid: 3e87c4ec68ddb7749a5e18874cd7aaf1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e87c4ec68ddb7749a5e18874cd7aaf1, type: 2}
@@ -3283,6 +3288,7 @@ MonoBehaviour:
   UICanvas: {fileID: 1141660269}
   computerCanvas: {fileID: 526275495}
   computerScreen: {fileID: 795706563}
+  percentage: {fileID: 1151422440}
 --- !u!1 &1112052882 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100012, guid: d51c3df0a942e084bbf5f5c67b79e945,
@@ -3375,6 +3381,12 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 223025807960689964, guid: 0e5cdcae22602ad4c8b808e224616beb,
     type: 2}
   m_PrefabInternal: {fileID: 1375781324}
+--- !u!114 &1151422440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114253132184881286, guid: 1689d926e6db8a84da5f09823fd8fe37,
+    type: 2}
+  m_PrefabInternal: {fileID: 1854151489}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1153671799
 Prefab:
   m_ObjectHideFlags: 0
@@ -4794,7 +4806,7 @@ Prefab:
     - target: {fileID: 224778689369963000, guid: 1689d926e6db8a84da5f09823fd8fe37,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00033403173
+      value: -0.00022072099
       objectReference: {fileID: 0}
     - target: {fileID: 224440961915070828, guid: 1689d926e6db8a84da5f09823fd8fe37,
         type: 2}
@@ -5291,6 +5303,81 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300212, guid: d51c3df0a942e084bbf5f5c67b79e945, type: 3}
+--- !u!1 &2086948691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2086948692}
+  - component: {fileID: 2086948694}
+  - component: {fileID: 2086948693}
+  m_Layer: 5
+  m_Name: PressEInteractText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2086948692
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086948691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 649870623}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -161.71}
+  m_SizeDelta: {x: 160, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2086948693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086948691}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Press E
+--- !u!222 &2086948694
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086948691}
+  m_CullTransparentMesh: 0
 --- !u!1 &2097415672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100014, guid: 9003db3fe0420e84b8ecbe4ff136d1c0,
