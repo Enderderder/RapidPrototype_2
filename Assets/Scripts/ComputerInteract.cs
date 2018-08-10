@@ -23,8 +23,8 @@ public class ComputerInteract : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         computerCam = GetComponentInChildren<Camera>();
         anim = computerCam.GetComponent<Animator>();
-        pressEText = GameObject.Find("PressEInteractText").GetComponent<Text>();
-        pressEText.enabled = false;
+        //pressEText = GameObject.Find("PressEInteractText").GetComponent<Text>();
+        //pressEText.enabled = false;
     }
 
     private void Update()
@@ -37,7 +37,7 @@ public class ComputerInteract : MonoBehaviour {
 
         if (isUsing)
         {
-            pressEText.enabled = false;
+            //pressEText.enabled = false;
             player.SetActive(false);
             computerCam.enabled = true;
             anim.SetBool("isActive", true);
@@ -67,7 +67,7 @@ public class ComputerInteract : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            pressEText.enabled = true;
+            //pressEText.enabled = true;
         }
     }
 
@@ -75,7 +75,7 @@ public class ComputerInteract : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            pressEText.enabled = false;
+            //pressEText.enabled = false;
         }
     }
 

@@ -6,12 +6,14 @@ using UnityEngine.Events;
 [System.Serializable]
 public class ItemPickUpEvent : UnityEvent<GameObject>
 {}
-
+public class DropZoneEvenet : UnityEvent<GameObject>
+{}
 
 public class PlayerGrabbing : MonoBehaviour
 {
     // Creates a unity event that can notify when player has pickupped something
     public static ItemPickUpEvent OnPlayerPickUp = new ItemPickUpEvent();
+    public static DropZoneEvenet OnPlayerDropZone = new DropZoneEvenet();
 
     public float grabDistance;
     public float throwForce;
@@ -79,8 +81,11 @@ public class PlayerGrabbing : MonoBehaviour
 
                 hit.collider.GetComponent<ItemDropPoint>().InRange = true;
 
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Pickup"))
                 {
+
+                    OnPlayerDropZone.Invoke(hit.collider.gameObject);
+
                     isGrabbing = false;
                     hand.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
 
