@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     // Singleton Instance
     public static GameController instance;
 
-    public int Score { get; set; }
+    public float Score;
 
     public Canvas pauseMenuCanvas;
     [System.NonSerialized] public bool isPaused = false;
@@ -57,6 +57,11 @@ public class GameController : MonoBehaviour
             playerCamController.enabled = true;
             playerController.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        if (GameObject.Find("Player") != null)
+        {
+            Score = Time.deltaTime;
         }
     }
 
