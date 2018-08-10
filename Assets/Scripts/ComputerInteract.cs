@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ComputerInteract : MonoBehaviour {
 
     public Canvas UICanvas;
     public Canvas computerCanvas;
     public GameObject computerScreen;
+    public Text percentage;
 
     private bool isUsing;
     private GameObject player;
@@ -23,6 +25,11 @@ public class ComputerInteract : MonoBehaviour {
 
     private void Update()
     {
+        if (percentage.text == "100%")
+        {
+            isUsing = false;
+        }
+
         if (isUsing)
         {
             player.SetActive(false);
