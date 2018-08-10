@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ComputerInteract : MonoBehaviour {
 
@@ -31,6 +32,7 @@ public class ComputerInteract : MonoBehaviour {
         if (percentage.text == "100%")
         {
             isUsing = false;
+            SceneManager.LoadScene(2);
         }
 
         if (isUsing)
