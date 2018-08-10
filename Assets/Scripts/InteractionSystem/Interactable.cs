@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(MeshRenderer))]
 public class Interactable : MonoBehaviour
 {
-    public string ButtonToInteract { get; set; } = "E";
+    public string ButtonToInteract { get; set; } = "e";
     public Color OutlineColor { get; set; } = Color.yellow;
     public bool AbleToPickUp { get; set; } = false;
     private MeshRenderer Renderer { get; set; }

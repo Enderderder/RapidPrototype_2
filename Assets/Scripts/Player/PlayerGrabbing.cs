@@ -6,12 +6,14 @@ using UnityEngine.Events;
 [System.Serializable]
 public class ItemPickUpEvent : UnityEvent<GameObject>
 {}
-
+public class DropZoneEvent : UnityEvent<GameObject>
+{}
 
 public class PlayerGrabbing : MonoBehaviour
 {
     // Creates a unity event that can notify when player has pickupped something
     public static ItemPickUpEvent OnPlayerPickUp = new ItemPickUpEvent();
+    public static DropZoneEvent OnPlayerDropZone = new DropZoneEvent();
 
     public float grabDistance;
     public float throwForce;
@@ -52,7 +54,7 @@ public class PlayerGrabbing : MonoBehaviour
             {
                 GameObject targetObject = hitInfo.collider.gameObject;
 
-                var interactScript = targetObject.GetComponent<Pickupable>();
+                Interactable interactScript = targetObject.GetComponent<Interactable>();
                 if (interactScript != null)
                 {
                     interactScript.OutlineOn();
@@ -60,19 +62,25 @@ public class PlayerGrabbing : MonoBehaviour
 
                     lastItem = targetObject;
 
-                    if (Input.GetButtonDown("Pickup"))
+                    if(Input.GetKeyDown("e"))
                     {
-                        // Trigger the event
-                        OnPlayerPickUp.Invoke(lastItem);
-
-                        isGrabbing = true;
-                        hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                        
-                        hit.collider.gameObject.transform.SetParent(hand);
-                        hit.collider.gameObject.transform.position = hand.position;
-
                         interactScript.OutlineOff();
                         interactScript.HideInteractHUD(interactUIText);
+                    }
+
+                    if (targetObject.GetComponent<Pickupable>())
+                    {
+                        if (Input.GetButtonDown("Pickup"))
+                        {
+                            // Trigger the event
+                            OnPlayerPickUp.Invoke(lastItem);
+
+                            isGrabbing = true;
+                            hitInfo.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+                            hitInfo.collider.gameObject.transform.SetParent(hand);
+                            hitInfo.collider.gameObject.transform.position = hand.position;
+                        }
                     }
                 }
             }
@@ -80,8 +88,8 @@ public class PlayerGrabbing : MonoBehaviour
             {
                 if (lastItem != null)
                 {
-                    lastItem.GetComponent<Pickupable>().OutlineOff();
-                    lastItem.GetComponent<Pickupable>().HideInteractHUD(interactUIText);
+                    lastItem.GetComponent<Interactable>().OutlineOff();
+                    lastItem.GetComponent<Interactable>().HideInteractHUD(interactUIText);
                 }
             }
         }
@@ -96,16 +104,18 @@ public class PlayerGrabbing : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(grabRay, out hitInfo, grabDistance) && hitInfo.collider.tag == "DropZone")
             {
-                lastDropPoint = hit.collider.gameObject;
+                lastDropPoint = hitInfo.collider.gameObject;
 
                 hitInfo.collider.GetComponent<ItemDropPoint>().InRange = true;
 
                 if (Input.GetButtonDown("Pickup"))
                 {
+                    OnPlayerDropZone.Invoke(hitInfo.collider.gameObject);
+
                     isGrabbing = false;
                     hand.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
 
-                    hand.GetChild(0).transform.position = hit.collider.gameObject.transform.position;
+                    hand.GetChild(0).transform.position = hitInfo.collider.gameObject.transform.position;
                     hand.GetChild(0).SetParent(null);
                     hitInfo.collider.GetComponent<ItemDropPoint>().InRange = false;
                 }
@@ -115,7 +125,7 @@ public class PlayerGrabbing : MonoBehaviour
                 if (lastDropPoint != null)
                     lastDropPoint.GetComponent<ItemDropPoint>().InRange = false;
 
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Pickup"))
                 {
                     isGrabbing = false;
                     hand.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;

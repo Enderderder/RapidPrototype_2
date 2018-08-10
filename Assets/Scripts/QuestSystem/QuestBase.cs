@@ -24,7 +24,7 @@ public class QuestBase : MonoBehaviour
     {
         TimeLeft = QuestTime;
 
-        GameObject questPanel = GameObject.Find("QuestPanel");
+        GameObject questPanel = GameObject.Find("PlayerHUD/QuestPanel");
         QuestUI = Instantiate((GameObject)Resources.Load("Prefabs/UI/Quest_UI"), questPanel.transform);
         QuestUISetter = QuestUI.GetComponent<QuestUISetUp>();
         QuestUISetter.UISetup(QuestName, Description, QuestTime);

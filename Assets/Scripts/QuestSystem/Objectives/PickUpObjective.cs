@@ -40,7 +40,7 @@ public class PickUpObjective : Objective
     // Exist as a event trigger function
     private void CheckPickUp(GameObject pickuppedObj)
     {
-        if (pickuppedObj == TargetObject && !Compeleted)
+        if (pickuppedObj.name == TargetName && !Compeleted)
         {
             this.CurrentCount++;
             this.Evaluate();
