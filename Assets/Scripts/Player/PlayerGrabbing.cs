@@ -52,7 +52,7 @@ public class PlayerGrabbing : MonoBehaviour
 
                     lastItem.GetComponent<Renderer>().material.shader = Shader.Find("Custom/Outline");
                 
-                    if (Input.GetButtonDown("Fire1"))
+                    if (Input.GetButtonDown("Pickup"))
                     {
                         // Trigger the event
                         OnPlayerPickUp.Invoke(hit.collider.gameObject);
@@ -99,7 +99,7 @@ public class PlayerGrabbing : MonoBehaviour
                 if (lastDropPoint != null)
                     lastDropPoint.GetComponent<ItemDropPoint>().InRange = false;
 
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Pickup"))
                 {
                     isGrabbing = false;
                     hand.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
